@@ -716,12 +716,12 @@ input[type=date]::-webkit-calendar-picker-indicator { opacity: .5; cursor: point
       <div class="cdot" id="cdot"></div>
       <span id="clbl">Offline</span>
     </div>
-    <button class="btn-setup" onclick="toggleSetup()">⚙ Cài đặt</button>
+    <button class="btn-setup" onclick="toggleSetup()" style="display:none">⚙ Cài đặt</button>
   </div>
 </div>
 
 <!-- ── Setup ── -->
-<div class="setup-wrap" id="setup-wrap">
+<div class="setup-wrap" id="setup-wrap" style="display:none!important">
   <div class="setup-box">
     <strong>🔧 Kết nối Google Sheet</strong><br><br>
     <b>1.</b> Mở <a href="https://script.google.com" target="_blank">script.google.com</a> → New project → paste file <code>Code.gs</code><br>
@@ -882,7 +882,8 @@ input[type=date]::-webkit-calendar-picker-indicator { opacity: .5; cursor: point
 // ══════════════════════════════════════
 //  STATE
 // ══════════════════════════════════════
-let SCRIPT_URL = localStorage.getItem('ecm_url') || '';
+let SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCrfIViiLAAc1XYS2p0gDOB0UhdFyd_Z4IZi5vYjQs7RB6giXjdeZwZZajhwpvp1rbEA/exec';
+localStorage.setItem('ecm_url', SCRIPT_URL);
 let members    = JSON.parse(localStorage.getItem('ecm_members') || '[]');
 let editingId  = null;
 let reportText = '';
